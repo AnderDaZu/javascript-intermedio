@@ -51,34 +51,91 @@ console.log('Se cargo archivo de modulo...');
 // });
 
 // 03 promesas
-import {cuadradoPromise, usuarioAutenticado} from './03_promesas.js';
+// import {cuadradoPromise, usuarioAutenticado} from './03_promesas.js';
 
-cuadradoPromise(0)
-    .then((value) => {
-        console.log(`El cuadrado de ${value} es: ${value**2}`);
-        return cuadradoPromise(1);
-    })
-    .then((value) => {
-        console.log(`El cuadrado de ${value} es: ${value**2}`);
-        return cuadradoPromise(2);
-    })
-    .then((value) => {
-        console.log(`El cuadrado de ${value} es: ${value**2}`);
-        return cuadradoPromise(3);
-    })
-    .then((value) => {
-        console.log(`El cuadrado de ${value} es: ${value**2}`);
-        return cuadradoPromise(4);
-    })
-    .then((value) => {
-        console.log(`El cuadrado de ${value} es: ${value**2}`);
-    })
-    .catch((err) => console.error(err));
+// cuadradoPromise(0)
+//     .then((value) => {
+//         console.log(`El cuadrado de ${value} es: ${value**2}`);
+//         return cuadradoPromise(1);
+//     })
+//     .then((value) => {
+//         console.log(`El cuadrado de ${value} es: ${value**2}`);
+//         return cuadradoPromise(2);
+//     })
+//     .then((value) => {
+//         console.log(`El cuadrado de ${value} es: ${value**2}`);
+//         return cuadradoPromise(3);
+//     })
+//     .then((value) => {
+//         console.log(`El cuadrado de ${value} es: ${value**2}`);
+//         return cuadradoPromise(4);
+//     })
+//     .then((value) => {
+//         console.log(`El cuadrado de ${value} es: ${value**2}`);
+//     })
+//     .catch((err) => console.error(err));
 
-usuarioAutenticado()
-    .then((res) => {
-        console.log('Respuesta:', res);
-    })
-    .catch(res => {
-        console.error(res);
-    });
+// usuarioAutenticado()
+//     .then((res) => {
+//         console.log('Respuesta:', res);
+//     })
+//     .catch(res => {
+//         console.error(res);
+//     });
+
+// 04 Async - Await
+import {cuadradoPromise, descargaNuevosClientes} from './04_async_await.js';
+
+async function funcionAsyncDeclarada() {
+    try {
+        console.log(`Inicio de Async Function Declarada`);
+        
+        let obj = await cuadradoPromise(0);
+        console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
+        
+        obj = await cuadradoPromise(1);
+        console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
+        
+        obj = await cuadradoPromise(2);
+        console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
+        
+        obj = await cuadradoPromise(3);
+        console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
+    } catch (error) {
+        console.error(error);
+    }
+}
+const funcionAsyncExpresada = async () => {
+    try {
+        console.log(`Inicio de Async Function Expresada`);
+
+        let obj = await cuadradoPromise(4);
+        console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
+        
+        obj = await cuadradoPromise(5);
+        console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
+        
+        obj = await cuadradoPromise(6);
+        console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+funcionAsyncDeclarada();
+funcionAsyncExpresada();
+
+async function app () {
+    try {
+        const response = await descargaNuevosClientes();
+        console.log(response);
+        console.log(`Este código si se bloquea...`);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+app();
+
+console.log(`Este código no se bloquea...`);
