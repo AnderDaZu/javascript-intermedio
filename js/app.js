@@ -10,14 +10,14 @@ console.log('Se cargo archivo de modulo...');
 // setTimeout(() => { clearInterval(interval) }, 5000);
 
 // 02 callbacks
-import {saludar, cuadradoCallback} from './02_callbacks.js';
+// import {saludar, cuadradoCallback} from './02_callbacks.js';
 
-saludar('Ander', () => {
-    console.log('Saliendo...');
-});
-saludar('Mircha', () => {
-    console.log('Ingresando...');
-});
+// saludar('Ander', () => {
+//     console.log('Saliendo...');
+// });
+// saludar('Mircha', () => {
+//     console.log('Ingresando...');
+// });
 
 // cuadradoCallback(0, (value, result) => {
 //     console.log(`El cuadrado de ${value} es: ` + result);
@@ -34,18 +34,51 @@ saludar('Mircha', () => {
 //         });
 //     });
 // });
-cuadradoCallback(0, (value) => {
-    console.log(`EL cuadrado de ${value} es: ${value**2}`);
-    cuadradoCallback(1, (value) => {
-        console.log(`EL cuadrado de ${value} es: ${value**2}`);
-        cuadradoCallback(2, (value) => {
-            console.log(`EL cuadrado de ${value} es: ${value**2}`);
-            cuadradoCallback(3, (value) => {
-                console.log(`EL cuadrado de ${value} es: ${value**2}`);
-                cuadradoCallback(4, (value) => {
-                    console.log(`EL cuadrado de ${value} es: ${value**2}`);
-                });
-            });
-        });
+// cuadradoCallback(0, (value) => {
+//     console.log(`EL cuadrado de ${value} es: ${value**2}`);
+//     cuadradoCallback(1, (value) => {
+//         console.log(`EL cuadrado de ${value} es: ${value**2}`);
+//         cuadradoCallback(2, (value) => {
+//             console.log(`EL cuadrado de ${value} es: ${value**2}`);
+//             cuadradoCallback(3, (value) => {
+//                 console.log(`EL cuadrado de ${value} es: ${value**2}`);
+//                 cuadradoCallback(4, (value) => {
+//                     console.log(`EL cuadrado de ${value} es: ${value**2}`);
+//                 });
+//             });
+//         });
+//     });
+// });
+
+// 03 promesas
+import {cuadradoPromise, usuarioAutenticado} from './03_promesas.js';
+
+cuadradoPromise(0)
+    .then((value) => {
+        console.log(`El cuadrado de ${value} es: ${value**2}`);
+        return cuadradoPromise(1);
+    })
+    .then((value) => {
+        console.log(`El cuadrado de ${value} es: ${value**2}`);
+        return cuadradoPromise(2);
+    })
+    .then((value) => {
+        console.log(`El cuadrado de ${value} es: ${value**2}`);
+        return cuadradoPromise(3);
+    })
+    .then((value) => {
+        console.log(`El cuadrado de ${value} es: ${value**2}`);
+        return cuadradoPromise(4);
+    })
+    .then((value) => {
+        console.log(`El cuadrado de ${value} es: ${value**2}`);
+    })
+    .catch((err) => console.error(err));
+
+usuarioAutenticado()
+    .then((res) => {
+        console.log('Respuesta:', res);
+    })
+    .catch(res => {
+        console.error(res);
     });
-});
