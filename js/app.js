@@ -140,5 +140,8 @@ console.log('Se cargo archivo de modulo...');
 
 // console.log(`Este código no se bloquea...`);
 
-import {tipoDatoSymbol} from './05_symbol.js';
-tipoDatoSymbol();
+// import {tipoDatoSymbol} from './05_symbol.js';
+// tipoDatoSymbol();
+
+import {seccionSet} from './06_set.js';
+seccionSet();
