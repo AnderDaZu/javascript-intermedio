@@ -143,5 +143,8 @@ console.log('Se cargo archivo de modulo...');
 // import {tipoDatoSymbol} from './05_symbol.js';
 // tipoDatoSymbol();
 
-import {seccionSet} from './06_set.js';
-seccionSet();
+// import {seccionSet} from './06_set.js';
+// seccionSet();
+
+import {mapas} from './07_maps.js';
+mapas();
