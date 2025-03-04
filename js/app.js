@@ -84,58 +84,61 @@ console.log('Se cargo archivo de modulo...');
 //     });
 
 // 04 Async - Await
-import {cuadradoPromise, descargaNuevosClientes} from './04_async_await.js';
+// import {cuadradoPromise, descargaNuevosClientes} from './04_async_await.js';
 
-async function funcionAsyncDeclarada() {
-    try {
-        console.log(`Inicio de Async Function Declarada`);
+// async function funcionAsyncDeclarada() {
+//     try {
+//         console.log(`Inicio de Async Function Declarada`);
         
-        let obj = await cuadradoPromise(0);
-        console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
+//         let obj = await cuadradoPromise(0);
+//         console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
         
-        obj = await cuadradoPromise(1);
-        console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
+//         obj = await cuadradoPromise(1);
+//         console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
         
-        obj = await cuadradoPromise(2);
-        console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
+//         obj = await cuadradoPromise(2);
+//         console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
         
-        obj = await cuadradoPromise(3);
-        console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
-    } catch (error) {
-        console.error(error);
-    }
-}
-const funcionAsyncExpresada = async () => {
-    try {
-        console.log(`Inicio de Async Function Expresada`);
+//         obj = await cuadradoPromise(3);
+//         console.log(`Async Funtion: ${obj.valor} | ${obj.result}`);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+// const funcionAsyncExpresada = async () => {
+//     try {
+//         console.log(`Inicio de Async Function Expresada`);
 
-        let obj = await cuadradoPromise(4);
-        console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
+//         let obj = await cuadradoPromise(4);
+//         console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
         
-        obj = await cuadradoPromise(5);
-        console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
+//         obj = await cuadradoPromise(5);
+//         console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
         
-        obj = await cuadradoPromise(6);
-        console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
+//         obj = await cuadradoPromise(6);
+//         console.log(`Asyn Function Expresada: ${obj.valor} | ${obj.result}`);
 
-    } catch (error) {
-        console.error(error);
-    }
-}
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 
-funcionAsyncDeclarada();
-funcionAsyncExpresada();
+// funcionAsyncDeclarada();
+// funcionAsyncExpresada();
 
-async function app () {
-    try {
-        const response = await descargaNuevosClientes();
-        console.log(response);
-        console.log(`Este código si se bloquea...`);
-    } catch (error) {
-        console.error(error);
-    }
-}
+// async function app () {
+//     try {
+//         const response = await descargaNuevosClientes();
+//         console.log(response);
+//         console.log(`Este código si se bloquea...`);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 
-app();
+// app();
 
-console.log(`Este código no se bloquea...`);
+// console.log(`Este código no se bloquea...`);
+
+import {tipoDatoSymbol} from './05_symbol.js';
+tipoDatoSymbol();
