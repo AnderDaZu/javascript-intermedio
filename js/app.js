@@ -146,5 +146,8 @@ console.log('Se cargo archivo de modulo...');
 // import {seccionSet} from './06_set.js';
 // seccionSet();
 
-import {mapas} from './07_maps.js';
-mapas();
+// import {mapas} from './07_maps.js';
+// mapas();
+
+import {weakSetMap} from './08_weakset_weakmap.js';
+weakSetMap();
