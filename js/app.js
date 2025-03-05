@@ -149,5 +149,8 @@ console.log('Se cargo archivo de modulo...');
 // import {mapas} from './07_maps.js';
 // mapas();
 
-import {weakSetMap} from './08_weakset_weakmap.js';
-weakSetMap();
+// import {weakSetMap} from './08_weakset_weakmap.js';
+// weakSetMap();
+
+import { iterableIterator } from "./09_iterables_iterators.js";
+iterableIterator();
