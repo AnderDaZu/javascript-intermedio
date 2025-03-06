@@ -152,5 +152,10 @@ console.log('Se cargo archivo de modulo...');
 // import {weakSetMap} from './08_weakset_weakmap.js';
 // weakSetMap();
 
-import { iterableIterator } from "./09_iterables_iterators.js";
-iterableIterator();
+// import { iterableIterator } from "./09_iterables_iterators.js";
+// iterableIterator();
+
+import { executeGeneratorBloqueante, excuteGenerator, status } from "./10_generator.js";
+executeGeneratorBloqueante();
+excuteGenerator();
+status();
