@@ -155,7 +155,10 @@ console.log('Se cargo archivo de modulo...');
 // import { iterableIterator } from "./09_iterables_iterators.js";
 // iterableIterator();
 
-import { executeGeneratorBloqueante, excuteGenerator, status } from "./10_generator.js";
-executeGeneratorBloqueante();
-excuteGenerator();
-status();
+// import { executeGeneratorBloqueante, excuteGenerator, status } from "./10_generator.js";
+// executeGeneratorBloqueante();
+// excuteGenerator();
+// status();
+
+import { logicalOperator } from "./11_ternarias-logical_operator.js";
+logicalOperator();
