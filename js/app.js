@@ -160,5 +160,8 @@ console.log('Se cargo archivo de modulo...');
 // excuteGenerator();
 // status();
 
-import { logicalOperator } from "./11_ternarias-logical_operator.js";
-logicalOperator();
+// import { logicalOperator } from "./11_ternarias-logical_operator.js";
+// logicalOperator();
+
+import { proxies } from "./12_proxies.js";
+proxies();
