@@ -163,5 +163,8 @@ console.log('Se cargo archivo de modulo...');
 // import { logicalOperator } from "./11_ternarias-logical_operator.js";
 // logicalOperator();
 
-import { proxies } from "./12_proxies.js";
-proxies();
+// import { proxies } from "./12_proxies.js";
+// proxies();
+
+import { propiedadesDinamicasObjetos } from "./13_propiedades_dinamicas_objetos.js";
+propiedadesDinamicasObjetos();
