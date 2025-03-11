@@ -166,5 +166,5 @@ console.log('Se cargo archivo de modulo...');
 // import { proxies } from "./12_proxies.js";
 // proxies();
 
-import { propiedadesDinamicasObjetos } from "./13_propiedades_dinamicas_objetos.js";
-propiedadesDinamicasObjetos();
+// import { propiedadesDinamicasObjetos } from "./13_propiedades_dinamicas_objetos.js";
+// propiedadesDinamicasObjetos();
