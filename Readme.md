@@ -318,3 +318,252 @@ console.log(obj.hobbies[1]); // "lectura"
 - ✔️ Usa {} para objetos y [] para listas o arreglos.
 - ✔️ JSON.parse() convierte JSON en un objeto de JavaScript.
 - ✔️ JSON.stringify() convierte un objeto de JavaScript en JSON.
+
+---
+
+# Web API's
+
+Las Web APIs (Application Programming Interfaces) en JavaScript son conjuntos de funciones y 
+herramientas que los navegadores web proporcionan para que los desarrolladores puedan interactuar 
+con diferentes características del navegador y del sistema.
+
+En otras palabras, son funciones ya creadas que JavaScript puede usar para hacer tareas como:
+✔️ Manipular el DOM (Document Object Model).
+✔️ Hacer peticiones HTTP a servidores.
+✔️ Guardar datos en el navegador.
+✔️ Acceder a dispositivos como la cámara o el micrófono.
+
+## 1. API del DOM
+
+**¿Qué es?**
+El DOM (Document Object Model) es la representación estructural del contenido HTML de una página web. La API 
+del DOM permite acceder, modificar y manipular esta estructura, lo que es fundamental para crear interactividad.
+
+```js
+// Modificar el contenido de un elemento: Seleccionamos el elemento con id "miElemento" y cambiamos su contenido
+document.getElementById("miElemento").innerText = "¡Hola, mundo!";
+
+// Cambiar estilos dinámicamente: Al hacer clic en el botón, cambiaremos su color de fondo
+document.getElementById("miBoton").addEventListener("click", function() {
+    this.style.backgroundColor = "blue";
+});
+```
+
+**Uso real:**
+Imagina que tienes una lista de tareas y quieres actualizarla sin recargar la página. Usarías el DOM API 
+para agregar o eliminar elementos de la lista conforme el usuario interactúa con la aplicación.
+
+## 2. Fetch API
+
+**¿Qué es?**
+La Fetch API es la herramienta moderna para realizar peticiones HTTP desde el navegador. Permite 
+comunicarse con servidores, obteniendo o enviando datos sin necesidad de recargar la página, 
+utilizando promesas para gestionar las respuestas.
+
+```js
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response => response.json()) // Convertimos la respuesta a formato JSON
+  .then(data => console.log(data))   // Mostramos los datos en consola
+  .catch(error => console.error("Error:", error)); // Manejamos posibles errores
+```
+
+**Uso real:**
+Puedes usarla para mostrar información actualizada en una aplicación de noticias, un panel 
+de control o cualquier sistema que necesite datos en tiempo real.
+
+## 3. Storage API: LocalStorage y SessionStorage
+
+**¿Qué son?**
+Estas APIs permiten almacenar datos en el navegador sin necesidad de un servidor.
+- LocalStorage: Almacena datos de forma persistente, es decir, la información se mantiene incluso después 
+de cerrar el navegador.
+- SessionStorage: Guarda datos solo durante la sesión actual; al cerrar la pestaña o el navegador, los datos se eliminan.
+
+```js
+// Guardamos un dato en localStorage
+localStorage.setItem("usuario", "Carlos");
+
+// Recuperamos el dato almacenado
+console.log(localStorage.getItem("usuario"));
+```
+
+**Uso real:**
+Ideal para guardar configuraciones del usuario, como preferencias de tema (oscuro/claro) o 
+información de formularios, sin necesidad de conectarse a una base de datos.
+
+## 4. Geolocation API
+
+**¿Qué es?**
+Esta API permite acceder a la ubicación geográfica del usuario, siempre y cuando éste otorgue el permiso. 
+Es muy útil para aplicaciones basadas en mapas, servicios de ubicación o aplicaciones del clima.
+
+```js
+navigator.geolocation.getCurrentPosition(position => {
+  console.log("Latitud:", position.coords.latitude);
+  console.log("Longitud:", position.coords.longitude);
+});
+```
+
+**Uso real:**
+Una aplicación de delivery o de recomendaciones locales puede usar la Geolocation API 
+para personalizar la experiencia del usuario según su ubicación.
+
+## 5. Notification API
+
+**¿Qué es?**
+La Notification API permite enviar notificaciones al usuario directamente desde el navegador. 
+Esto es especialmente útil para alertar sobre eventos importantes o actualizaciones, 
+incluso cuando el usuario no está en la pestaña de la aplicación.
+
+```js
+// Verificamos si ya se tiene permiso para mostrar notificaciones
+if (Notification.permission === "granted") {
+  new Notification("¡Hola! Tienes una nueva notificación.");
+} else {
+  // Si no se ha concedido el permiso, lo solicitamos
+  Notification.requestPermission()
+  .then(permission => {
+    if (permission === "granted") {
+      new Notification("¡Gracias! Ahora recibirás notificaciones.");
+    }
+  });
+}
+```
+
+**Uso real:**
+Ideal para aplicaciones de mensajería, recordatorios de eventos o cualquier sistema 
+que requiera mantener al usuario informado en tiempo real.
+
+## 6. Clipboard API
+
+**¿Qué es?**
+Esta API permite interactuar con el portapapeles del sistema, lo que facilita 
+copiar o pegar texto de manera programática.
+
+```js
+navigator.clipboard.writeText("Texto copiado al portapapeles")
+  .then(() => console.log("Texto copiado correctamente"))
+  .catch(err => console.error("Error al copiar:", err));
+```
+
+**Uso real:**
+Útil en aplicaciones donde se desee facilitar la copia de enlaces, códigos de descuento o 
+información importante sin que el usuario tenga que hacerlo manualmente.
+
+## 7. BOM (Browser Object Model)
+
+**¿Qué es?**
+El BOM (Browser Object Model) es un conjunto de objetos que permiten interactuar con el navegador. A diferencia del DOM, que solo maneja el contenido HTML, el BOM permite acceder a cosas como:
+
+* ✔️ La URL actual.
+* ✔️ Las ventanas y pestañas del navegador.
+* ✔️ La consola y los alertas.
+* ✔️ El historial de navegación.
+* ✔️ La información sobre la pantalla y el dispositivo.
+
+**💡 Ejemplos prácticos del BOM**
+
+- **window** (El objeto principal del BOM): Todo en el BOM está dentro del objeto window, 
+que representa la ventana del navegador.
+
+```js
+// 📌 Ejemplo: Mostrar una alerta en pantalla
+window.alert("¡Hola! Esta es una alerta del BOM.");
+// 📌 Ejemplo: Obtener el ancho y alto de la ventana
+console.log("Ancho de la ventana:", window.innerWidth);
+console.log("Alto de la ventana:", window.innerHeight);
+```
+
+- **location** (Información de la URL actual): El objeto window.location te permite obtener 
+información sobre la URL y modificarla.
+
+```js
+// 📌 Ejemplo: Ver la URL actual
+console.log("URL actual:", window.location.href);
+// 📌 Ejemplo: Redirigir a otra página
+window.location.href = "https://www.google.com";
+// 📌 Ejemplo: Recargar la página
+window.location.reload();
+```
+
+- **history** (Historial de navegación): El objeto window.history permite interactuar con el historial del navegador.
+
+```js
+// 📌 Ejemplo: Volver a la página anterior
+window.history.back();
+// 📌 Ejemplo: Ir a la página siguiente
+window.history.forward();
+// 📌 Ejemplo: Ir dos páginas atrás en el historial
+window.history.go(-2);
+```
+
+- **navigator** (Información del navegador y el dispositivo): El objeto window.navigator permite 
+obtener información sobre el navegador, el sistema operativo y la conexión del usuario.
+
+```js
+// 📌 Ejemplo: Saber qué navegador usa el usuario
+console.log("Navegador:", window.navigator.userAgent);
+// 📌 Ejemplo: Saber si el usuario está en línea o no
+console.log("¿Está en línea?", window.navigator.onLine);
+// 📌 Ejemplo: Saber el idioma del navegador
+console.log("Idioma del navegador:", window.navigator.language);
+```
+
+# 8. CSSOM (CSS Object Model)
+
+**¿Qué es?**
+El CSSOM (CSS Object Model) es similar al DOM, pero en lugar de manejar el contenido HTML, 
+se usa para interactuar y modificar los estilos CSS de una página.
+
+- **Modificar estilos** con `style`: Puedes cambiar los estilos de un elemento dinámicamente usando .style.
+
+```js
+// 📌 Ejemplo: Cambiar el color de fondo de un botón
+document.getElementById("miBoton").style.backgroundColor = "blue";
+// 📌 Ejemplo: Ocultar un elemento
+document.getElementById("miElemento").style.display = "none";
+// 📌 Ejemplo: Cambiar el tamaño de la fuente de un párrafo
+document.getElementById("miTexto").style.fontSize = "20px";
+```
+
+- **Obtener estilos calculados** con `getComputedStyle`: A veces, los estilos CSS están en una hoja de 
+estilos externa y no en style. Para obtenerlos, usamos getComputedStyle.
+
+```js
+// 📌 Ejemplo: Saber el color de un botón
+let boton = document.getElementById("miBoton");
+let estilos = window.getComputedStyle(boton);
+console.log("Color del botón:", estilos.backgroundColor);
+```
+
+- **Agregar o quitar clases** con `classList`: Otra forma eficiente de manejar estilos es usando 
+clases CSS en lugar de modificar style directamente.
+
+```js
+// 📌 Ejemplo: Agregar y quitar clases dinámicamente
+document.getElementById("miCaja").classList.add("activo");  // Agregar una clase
+document.getElementById("miCaja").classList.remove("activo"); // Quitar una clase
+document.getElementById("miCaja").classList.toggle("activo"); // Alternar entre agregar/quitar
+// 📌 Ejemplo: Verificar si un elemento tiene una clase
+let tieneClase = document.getElementById("miCaja").classList.contains("activo");
+console.log("¿Tiene la clase activo?", tieneClase);
+```
+
+---
+
+**Resumen Práctico**
+
+- DOM API: Permite actualizar y modificar el contenido de la página, como cambiar 
+textos, estilos o crear elementos nuevos.
+- BOM permite interactuar con la ventana del navegador, la URL, el historial y la información del usuario.
+- CSSOM permite modificar y obtener los estilos CSS de los elementos de la página.
+- Fetch API: Facilita la comunicación con servidores, permitiéndote obtener datos 
+en tiempo real y actualizar la interfaz sin recargar la página.
+- Storage API: Te ayuda a guardar datos localmente en el navegador, ya sea de forma 
+persistente (LocalStorage) o temporal (SessionStorage).
+- Geolocation API: Ofrece la posibilidad de obtener la ubicación del usuario, ideal 
+para aplicaciones basadas en ubicación.
+- Notification API: Permite enviar alertas y notificaciones al usuario, mejorando la 
+comunicación en tiempo real.
+- Clipboard API: Facilita operaciones con el portapapeles, mejorando la experiencia 
+de copiar y pegar contenido.
