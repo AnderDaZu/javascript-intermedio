@@ -168,3 +168,4 @@ console.log('Se cargo archivo de modulo...');
 
 // import { propiedadesDinamicasObjetos } from "./13_propiedades_dinamicas_objetos.js";
 // propiedadesDinamicasObjetos();
+

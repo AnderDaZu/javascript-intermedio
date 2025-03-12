@@ -220,3 +220,101 @@ const funcionAsincronaExpresada = async () => {
 
 funcionAsincronaExpresada();
 ```
+
+---
+
+# JSON
+
+JSON (JavaScript Object Notation) es un formato ligero para intercambiar datos. Se basa en la sintaxis 
+de los objetos de JavaScript, pero se usa ampliamente en distintos lenguajes de programación.
+
+## 📌 ¿Para qué sirve JSON en JavaScript?
+
+JSON se usa principalmente para:
+- ✅ Enviar y recibir datos entre un servidor y un cliente (ejemplo: una API).
+- ✅ Almacenar configuraciones o información estructurada.
+- ✅ Compartir datos entre diferentes aplicaciones.
+
+## 🚀 Cómo trabajar con JSON en JavaScript
+
+1️⃣ Estructura de JSON
+JSON está basado en pares clave-valor y usa:
+- ✔️ Llaves {} para objetos
+- ✔️ Corchetes [] para listas o arreglos
+
+```js
+{
+  "nombre": "Juan",
+  "edad": 25,
+  "esEstudiante": true,
+  "cursos": ["JavaScript", "HTML", "CSS"]
+}
+```
+
+## 2️⃣ Convertir JSON a un objeto en JavaScript
+
+Cuando recibimos un JSON en formato de texto (por ejemplo, desde una API), necesitamos 
+convertirlo a un objeto para manipularlo en JavaScript. Para esto usamos JSON.parse().
+
+```js
+const jsonString = '{"nombre": "Juan", "edad": 25}';
+const objetoJS = JSON.parse(jsonString); // Convierte JSON a objeto JavaScript
+
+console.log(objetoJS.nombre); // "Juan"
+console.log(objetoJS.edad);   // 25
+```
+
+## 3️⃣ Convertir un objeto de JavaScript a JSON
+
+Si queremos enviar datos a un servidor, a menudo necesitamos convertir un objeto 
+JavaScript a formato JSON. Para esto usamos JSON.stringify().
+
+```js
+const persona = {
+  nombre: "María",
+  edad: 30,
+  ciudad: "Madrid"
+};
+
+const jsonData = JSON.stringify(persona); // Convierte objeto JS a JSON
+
+console.log(jsonData);
+// Resultado: '{"nombre":"María","edad":30,"ciudad":"Madrid"}'
+```
+
+## 4️⃣ JSON con Arrays y Objetos Anidados
+
+Los valores en JSON pueden ser objetos anidados o arreglos.
+
+```js
+{
+  "usuario": {
+    "nombre": "Carlos",
+    "email": "carlos@email.com"
+  },
+  "hobbies": ["fútbol", "lectura", "videojuegos"]
+}
+```
+
+En JavaScript
+
+```js
+const data = `{
+  "usuario": {
+    "nombre": "Carlos",
+    "email": "carlos@email.com"
+  },
+  "hobbies": ["fútbol", "lectura", "videojuegos"]
+}`;
+
+const obj = JSON.parse(data);
+console.log(obj.usuario.nombre); // "Carlos"
+console.log(obj.hobbies[1]); // "lectura"
+```
+
+## 💡 Resumen Final
+
+- ✔️ JSON es un formato de intercambio de datos basado en texto.
+- ✔️ Usa {} para objetos y [] para listas o arreglos.
+- ✔️ JSON.parse() convierte JSON en un objeto de JavaScript.
+- ✔️ JSON.stringify() convierte un objeto de JavaScript en JSON.
