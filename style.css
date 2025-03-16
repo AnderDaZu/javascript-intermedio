@@ -1,3 +1,7 @@
+:root {
+    --yellow-color: #f7df1e;
+    --dark-color: #222;
+}
 html {
     box-sizing: border-box;
 }
